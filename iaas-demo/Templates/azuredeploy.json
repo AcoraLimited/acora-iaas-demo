@@ -4,7 +4,7 @@
   "parameters": {
     "envPrefix": {
       "type": "string",
-      "defaultValue": "acorad",
+      "defaultValue": "acrademo",
       "metadata": {
         "description": "Common prefix for all resource naming"
       }
