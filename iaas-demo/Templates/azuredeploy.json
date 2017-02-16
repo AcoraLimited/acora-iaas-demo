@@ -37,7 +37,7 @@
     },
     "artifactsLocation": {
       "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/rikhepworth/ResourceTemplates/master/IaaSDeployforDemo/IaaSDeployforDemo",
+      "defaultValue": "https://raw.githubusercontent.com/acoralimited/acora-iaas-demo/master/iaas-demo",
       "metadata": {
         "description": "Storage Account/GitHub base uri for required files"
       }
