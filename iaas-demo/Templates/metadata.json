@@ -2,6 +2,14 @@
   "itemDisplayName": "Domain with DC, ADFS and WAP",
   "description": "Environment with Domain Controller, ADFS and WAP on Server 2012 R2",
   "summary": "3 servers on a single subnet. WAP has PIP and acts as jumpbox. Installs Certificate services, ADFS and WAP on a new Windows AD Domain",
-  "githubUsername": "rikhepworth",
-  "dateUpdated": "2016-11-29"
+  "githubUsername": "craighurt",
+  "dateUpdated": "2017-02-16",
+    "adminPassword": {
+        "reference": {
+            "keyVault": {
+                "id": "/subscriptions/3f000fbd-35ee-4ab6-b9b1-278e6dd0a15a/resourceGroups/Management/providers/Microsoft.KeyVault/vaults/Acora-Deployment"
+            },
+            "secretName": "IaaS-Demo-Credentials"
+        }
+    }
 }

@@ -4,14 +4,14 @@
   "parameters": {
     "envPrefix": {
       "type": "string",
-      "defaultValue": "acorad",
+      "defaultValue": "demo",
       "metadata": {
         "description": "Common prefix for all resource naming"
       }
     },
     "envLocation": {
       "type": "string",
-      "defaultValue": "West Europe",
+      "defaultValue": "North Europe",
       "allowedValues": [
         "North Europe",
         "West Europe",

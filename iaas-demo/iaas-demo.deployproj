@@ -13,6 +13,16 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>db3ecd05-db86-40af-be55-c33056b15317</ProjectGuid>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
   <PropertyGroup>
     <TargetFrameworkIdentifier>Deployment</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>1.0</TargetFrameworkVersion>
@@ -34,9 +44,6 @@
     <None Include="CustomScript\DomainController.ps1" />
     <None Include="CustomScript\PSPKI.zip" />
     <None Include="CustomScript\WapServer.ps1" />
-    <None Include="Deployment.targets">
-      <Visible>False</Visible>
-    </None>
     <Content Include="Scripts\Deploy-AzureResourceGroup.ps1" />
     <Content Include="Templates\azuredeploy.json" />
     <None Include="DSC\dsc.zip" />
@@ -156,6 +163,9 @@
     <Content Include="Tools\Microsoft.WindowsAzure.Storage.DataMovement.dll">
       <Visible>False</Visible>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
   </ItemGroup>
   <Target Name="GetReferenceAssemblyPaths" />
 </Project>

@@ -81,11 +81,13 @@ Invoke-Command  -Credential $credential -ComputerName $env:COMPUTERNAME -ScriptB
 	Set-tsCertificateTemplateAcl -certificateTemplate $certificateTemplate -computers "EnvironmentComputers"
 
 	# Generate SSL Certificates
-
 	$fsCertificateSubject = $fsServiceName
 	Generate-SSLCertificate -certificateSubject $fsCertificateSubject -certificateTemplate $certificateTemplate
 	$tsCertificateSubject = $tsServiceName + ".northeurope.cloudapp.azure.com"
 	Generate-SSLCertificate -certificateSubject $tsCertificateSubject -certificateTemplate $certificateTemplate
+	$testCertificateSubject = $tsServiceName + "." + $resourceLocation + ".cloudapp.azure.com"
+	Generate-SSLCertificate -certificateSubject $testCertificateSubject -certificateTemplate $certificateTemplate
+
 
 	# Export Certificates
 	$fsCertExportFileName = $fsCertificateSubject+".pfx"
@@ -94,6 +96,10 @@ Invoke-Command  -Credential $credential -ComputerName $env:COMPUTERNAME -ScriptB
 	$tsCertExportFileName = $tsCertificateSubject+".pfx"
 	$tsCertExportFile = $workingDir+"\"+$tsCertExportFileName
 	Export-SSLCertificate -certificateSubject $tsCertificateSubject -certificateExportFile $tsCertExportFile -certificatePassword $vmAdminPassword
+	$testCertExportFileName = $testCertificateSubject + ".pfx"
+	$testCertExportFile = $workingDir + "\" + $testCertExportFileName
+	Export-SSLCertificate -certificateSubject $testCertificateSubject -certificateExportFile $testCertExportFile -certificatePassword $vmAdminPassword
+
 
 	#Set permissions on the src folder
 	$acl = Get-Acl c:\src
